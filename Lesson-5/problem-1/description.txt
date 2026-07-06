@@ -1,0 +1,28 @@
+
+## 🧩 Problem: Mixed Caesar Cipher
+
+### Description
+
+You are given a single uppercase English letter (A–Z).
+
+Apply a special encryption rule:
+
+* If the letter is in the first half of the alphabet (A–M), shift it **forward by 3 positions**.
+* If the letter is in the second half of the alphabet (N–Z), shift it **backward by 3 positions**.
+
+The alphabet is circular, meaning after Z it wraps back to A.
+
+Print the encrypted letter.
+
+---
+
+### Input
+
+A single uppercase English letter (A–Z).
+
+---
+
+### Output
+
+Print the encrypted letter.
+

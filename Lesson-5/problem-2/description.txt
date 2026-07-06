@@ -1,0 +1,37 @@
+幫你整理成標準 OJ 格式（英文題目 + 5 筆測資）👇
+
+---
+
+## 🧩 Problem: Day of the Week
+
+### Description
+
+Given a positive integer **y**, determine which day of the week it represents.
+
+The mapping is as follows:
+
+* 1 → Sunday
+* 2 → Monday
+* 3 → Tuesday
+* 4 → Wednesday
+* 5 → Thursday
+* 6 → Friday
+* 7 → Saturday
+
+Print the corresponding weekday name.
+
+---
+
+### Input
+
+A single positive integer **y** (1 ≤ y ≤ 7).
+
+---
+
+### Output
+
+Print the corresponding day of the week:
+
+```
+Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, or Saturday
+```
