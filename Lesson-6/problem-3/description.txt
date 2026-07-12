@@ -1,0 +1,15 @@
+Problem: Reverse the Secret Code
+Level: Medium - String / Number Manipulation
+Problem Description
+A secret agent receives a long encrypted code from headquarters.
+To decode the message, the agent must reverse the order of all digits in the code.
+Given a number N, write a program to output the reversed version of N.
+For example:
+The reverse of 12345 is 54321.
+The reverse of 90876 is 67809.
+Your program should keep all digits in their reversed order.
+Input
+The input contains a single integer N.
+The length of N is between 1 and 100 digits.
+Output
+Print the reversed code.

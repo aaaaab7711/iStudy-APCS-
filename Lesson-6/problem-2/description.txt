@@ -1,0 +1,18 @@
+Problem: Star Tower Builder
+Level: Medium - Nested for Loop Practice
+Problem Description
+In the kingdom of CodeLand, a young builder is responsible for creating a magical star tower. The tower is made of shining stars, and each level of the tower must contain more stars than the level before it.
+Your task is to help the builder create the star tower.
+Given a positive integer N, print a left-aligned star triangle with N levels.
+The 1st level contains 1 star.
+The 2nd level contains 2 stars.
+The 3rd level contains 3 stars.
+...
+The N-th level contains N stars.
+Input
+The input contains one positive integer N.
+Constraints:
+1≤N≤20
+Output
+Print the star tower with N levels.
+Each line should end with a newline character.
