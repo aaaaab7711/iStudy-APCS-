@@ -1,28 +1,104 @@
 
-## 🧩 Problem: Mixed Caesar Cipher
 
-### Description
+# Problem A - The Secret Vault
 
-You are given a single uppercase English letter (A–Z).
+## Problem Description
 
-Apply a special encryption rule:
+Deep inside an ancient underground laboratory lies a mysterious vault containing priceless treasures. The vault is protected by a special security system.
 
-* If the letter is in the first half of the alphabet (A–M), shift it **forward by 3 positions**.
-* If the letter is in the second half of the alphabet (N–Z), shift it **backward by 3 positions**.
+You may enter password codes one by one.
 
-The alphabet is circular, meaning after Z it wraps back to A.
+The vault will unlock if **either** of the following conditions is satisfied:
 
-Print the encrypted letter.
+* The password is divisible by **7**, or
+* The password is exactly **777**.
 
----
+If the password is incorrect, the security system rejects it and waits for another attempt.
 
-### Input
-
-A single uppercase English letter (A–Z).
+Write a program that keeps reading password codes until the vault is successfully unlocked.
 
 ---
 
-### Output
+## Input
 
-Print the encrypted letter.
+The input consists of several integers, one per line.
+
+It is guaranteed that at least one password will eventually unlock the vault.
+
+---
+
+## Output
+
+For every incorrect password, output
+
+```text
+Access Denied
+```
+
+When a correct password is entered, output
+
+```text
+Access Granted
+```
+
+and terminate the program immediately.
+
+---
+
+## Sample Input 1
+
+```text
+10
+20
+25
+777
+```
+
+## Sample Output 1
+
+```text
+Access Denied
+Access Denied
+Access Denied
+Access Granted
+```
+
+---
+
+## Sample Input 2
+
+```text
+5
+8
+21
+```
+
+## Sample Output 2
+
+```text
+Access Denied
+Access Denied
+Access Granted
+```
+
+---
+
+## Constraints
+
+```text
+-10^9 ≤ password ≤ 10^9
+```
+
+It is guaranteed that at least one password satisfies the unlocking condition.
+
+---
+
+## Hint
+
+Continue reading passwords until one of them
+
+* is divisible by **7**, or
+* is exactly **777**.
+
+---
 
