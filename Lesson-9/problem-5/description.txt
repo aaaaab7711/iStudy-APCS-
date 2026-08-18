@@ -1,0 +1,271 @@
+可以，這題我一樣幫你整理成 **OJ 可直接使用的英文題目 + 7 筆測資 + C++ 正式解答**。
+
+# Problem: Digit Score
+
+## Description
+
+You are given a positive integer `n`.
+
+The **score** of `n` is defined as the sum of `d × freq(d)` for every **distinct digit** `d` that appears in `n`.
+
+Here, `freq(d)` represents the number of times digit `d` appears in `n`.
+
+In other words, for every digit that appears in `n`:
+
+```text
+contribution = digit × frequency
+```
+
+The score is the sum of all contributions.
+
+### Example
+
+If:
+
+```text
+n = 122
+```
+
+* Digit `1` appears `1` time, contributing `1 × 1 = 1`.
+* Digit `2` appears `2` times, contributing `2 × 2 = 4`.
+
+Therefore:
+
+```text
+score = 1 + 4 = 5
+```
+
+Given `n`, calculate and output its score.
+
+---
+
+## Input
+
+The input contains one integer `n`.
+
+## Output
+
+Output the score of `n`.
+
+## Constraints
+
+```text
+1 <= n <= 10^18
+```
+
+---
+
+# Test Cases
+
+### Test Case 1
+
+**Input**
+
+```text
+122
+```
+
+**Output**
+
+```text
+5
+```
+
+### Test Case 2
+
+**Input**
+
+```text
+12345
+```
+
+**Output**
+
+```text
+15
+```
+
+### Test Case 3
+
+**Input**
+
+```text
+11111
+```
+
+**Output**
+
+```text
+5
+```
+
+### Test Case 4
+
+**Input**
+
+```text
+9876543210
+```
+
+**Output**
+
+```text
+45
+```
+
+### Test Case 5
+
+**Input**
+
+```text
+1002003
+```
+
+**Output**
+
+```text
+6
+```
+
+### Test Case 6
+
+**Input**
+
+```text
+555123555
+```
+
+**Output**
+
+```text
+32
+```
+
+### Test Case 7
+
+**Input**
+
+```text
+987898789
+```
+
+**Output**
+
+```text
+75
+```
+
+---
+
+# C++ Reference Solution
+
+這題最適合使用陣列記錄 `0~9` 每個數字出現幾次。
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string n;
+    cin >> n;
+
+    int freq[10] = {0};
+
+    // Count the frequency of each digit
+    for (char c : n) {
+        int digit = c - '0';
+        freq[digit]++;
+    }
+
+    int score = 0;
+
+    // Calculate the score
+    for (int d = 0; d <= 9; d++) {
+        score += d * freq[d];
+    }
+
+    cout << score << endl;
+
+    return 0;
+}
+```
+
+## 解題概念
+
+假設：
+
+```text
+n = 122
+```
+
+建立：
+
+```text
+freq[0] = 0
+freq[1] = 1
+freq[2] = 2
+...
+```
+
+然後計算：
+
+```text
+1 × 1 = 1
+2 × 2 = 4
+```
+
+最後：
+
+```text
+1 + 4 = 5
+```
+
+### 一個重要的觀察
+
+其實這題的答案等同於 **所有數字本身直接相加**。
+
+例如：
+
+```text
+122
+```
+
+直接計算：
+
+```text
+1 + 2 + 2 = 5
+```
+
+與：
+
+```text
+1 × 1 + 2 × 2 = 5
+```
+
+完全相同。
+
+所以如果這題是給初學者，其實可以用更簡單的方式：
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string n;
+    cin >> n;
+
+    int score = 0;
+
+    for (char c : n) {
+        score += c - '0';
+    }
+
+    cout << score << endl;
+
+    return 0;
+}
+```
+
+這個版本會更適合拿來當 **字串與迴圈的基礎題**。

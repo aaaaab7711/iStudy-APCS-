@@ -1,0 +1,251 @@
+可以，下面幫你整理成適合 OJ 使用的 **英文題目、7 筆測資，以及 C++ 參考解答**。
+
+# Problem: Missing Number
+
+## Description
+
+Given an array `nums` containing `n` **distinct** numbers in the range `[0, n]`, find the only number in the range that is missing from the array.
+
+For example, if there are `3` numbers in the array, the complete range should contain the numbers from `0` to `3`.
+
+Your task is to find the number that does not appear in the array.
+
+---
+
+## Input
+
+The first line contains an integer `n`, representing the number of elements in the array.
+
+The second line contains `n` distinct integers `nums[i]`.
+
+---
+
+## Output
+
+Output the missing number.
+
+---
+
+## Constraints
+
+```text
+1 <= n <= 100000
+0 <= nums[i] <= n
+```
+
+All numbers in `nums` are distinct.
+
+---
+
+# Test Cases
+
+### Test Case 1
+
+**Input**
+
+```text
+3
+3 0 1
+```
+
+**Output**
+
+```text
+2
+```
+
+---
+
+### Test Case 2
+
+**Input**
+
+```text
+2
+0 1
+```
+
+**Output**
+
+```text
+2
+```
+
+---
+
+### Test Case 3
+
+**Input**
+
+```text
+2
+1 2
+```
+
+**Output**
+
+```text
+0
+```
+
+---
+
+### Test Case 4
+
+**Input**
+
+```text
+4
+0 1 3 4
+```
+
+**Output**
+
+```text
+2
+```
+
+---
+
+### Test Case 5
+
+**Input**
+
+```text
+5
+5 2 1 0 3
+```
+
+**Output**
+
+```text
+4
+```
+
+---
+
+### Test Case 6
+
+**Input**
+
+```text
+6
+6 0 4 1 2 3
+```
+
+**Output**
+
+```text
+5
+```
+
+---
+
+### Test Case 7
+
+**Input**
+
+```text
+10
+10 2 7 0 5 1 9 3 6 4
+```
+
+**Output**
+
+```text
+8
+```
+
+---
+
+# C++ Reference Solution
+
+這裡使用 **數學加總公式**。
+
+從 `0` 到 `n` 的完整數字總和為：
+
+```text
+0 + 1 + 2 + ... + n
+```
+
+可以利用公式：
+
+```text
+n × (n + 1) / 2
+```
+
+然後減掉陣列中所有數字的總和，就會得到缺少的數字。
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    long long expectedSum = 1LL * n * (n + 1) / 2;
+    long long actualSum = 0;
+
+    for (int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
+        actualSum += num;
+    }
+
+    cout << expectedSum - actualSum << endl;
+
+    return 0;
+}
+```
+
+## 解題範例
+
+假設輸入：
+
+```text
+4
+0 1 3 4
+```
+
+完整範圍是：
+
+```text
+0 1 2 3 4
+```
+
+完整總和：
+
+```text
+0 + 1 + 2 + 3 + 4 = 10
+```
+
+陣列中的總和：
+
+```text
+0 + 1 + 3 + 4 = 8
+```
+
+因此：
+
+```text
+10 - 8 = 2
+```
+
+所以缺少的數字是：
+
+```text
+2
+```
+
+### Time Complexity
+
+```text
+O(n)
+```
+
+### Space Complexity
+
+```text
+O(1)
+```

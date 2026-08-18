@@ -1,0 +1,228 @@
+可以，這題是經典的 **Nim Game（取石頭遊戲）**。我幫你整理成適合 OJ 使用的 **英文題目、5 筆測資，以及 C++ 正式解答**。
+
+---
+
+# Problem: Nim Game
+
+## Description
+
+You are playing a game with your friend.
+
+Initially, there are `n` stones in a heap. You and your friend take turns removing stones, and **you take the first turn**.
+
+On each turn, a player must remove **1, 2, or 3 stones** from the heap.
+
+The player who removes the last stone wins the game.
+
+Both players play optimally.
+
+Given the number of stones `n`, determine whether you can win the game.
+
+Output `true` if you can guarantee a win; otherwise, output `false`.
+
+---
+
+## Input
+
+The input contains one integer:
+
+```text
+n
+```
+
+where `n` is the number of stones in the heap.
+
+---
+
+## Output
+
+Output:
+
+```text
+true
+```
+
+if the first player can win the game.
+
+Otherwise, output:
+
+```text
+false
+```
+
+---
+
+## Constraints
+
+```text
+1 <= n <= 2^31 - 1
+```
+
+---
+
+# Test Cases
+
+### Test Case 1
+
+**Input**
+
+```text
+1
+```
+
+**Output**
+
+```text
+true
+```
+
+---
+
+### Test Case 2
+
+**Input**
+
+```text
+2
+```
+
+**Output**
+
+```text
+true
+```
+
+---
+
+### Test Case 3
+
+**Input**
+
+```text
+3
+```
+
+**Output**
+
+```text
+true
+```
+
+---
+
+### Test Case 4
+
+**Input**
+
+```text
+4
+```
+
+**Output**
+
+```text
+false
+```
+
+---
+
+### Test Case 5
+
+**Input**
+
+```text
+15
+```
+
+**Output**
+
+```text
+true
+```
+
+---
+
+# C++ Reference Solution
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    if (n % 4 == 0) {
+        cout << "false" << endl;
+    } else {
+        cout << "true" << endl;
+    }
+
+    return 0;
+}
+```
+
+## 解題概念
+
+這題的關鍵是觀察：
+
+| 石頭數量 | 結果   |
+| ---- | ---- |
+| 1    | Win  |
+| 2    | Win  |
+| 3    | Win  |
+| 4    | Lose |
+| 5    | Win  |
+| 6    | Win  |
+| 7    | Win  |
+| 8    | Lose |
+
+可以發現：
+
+```text
+4, 8, 12, 16, ...
+```
+
+也就是 **4 的倍數一定是必敗局**。
+
+原因是如果一開始有 `4` 顆石頭：
+
+* 拿 `1` 顆 → 對手拿 `3` 顆
+* 拿 `2` 顆 → 對手拿 `2` 顆
+* 拿 `3` 顆 → 對手拿 `1` 顆
+
+無論你怎麼拿，對手都可以把剩下的石頭全部拿完。
+
+而如果石頭數量不是 `4` 的倍數，你可以先拿掉：
+
+```text
+n % 4
+```
+
+顆石頭，讓對手面對 `4` 的倍數。
+
+之後無論對手拿 `1`、`2` 或 `3` 顆，你都可以拿：
+
+```text
+4 - 對手拿的數量
+```
+
+讓每一輪兩個人總共拿走 `4` 顆。
+
+因此答案就是：
+
+```cpp
+n % 4 != 0
+```
+
+### Time Complexity
+
+```text
+O(1)
+```
+
+### Space Complexity
+
+```text
+O(1)
+```

@@ -1,0 +1,233 @@
+可以，這題是 **Roman Numeral to Integer（羅馬數字轉整數）**。下面我幫你整理成適合 OJ 使用的 **英文題目、5 筆測資，以及 C++ 正式解答**。
+
+---
+
+# Problem: Roman Numeral to Integer
+
+## Description
+
+Roman numerals are represented by seven different symbols:
+
+| Symbol | Value |
+| ------ | ----: |
+| I      |     1 |
+| V      |     5 |
+| X      |    10 |
+| L      |    50 |
+| C      |   100 |
+| D      |   500 |
+| M      |  1000 |
+
+Roman numerals are usually written from largest to smallest from left to right.
+
+For example:
+
+* `II = 2`
+* `XII = 12`
+* `XXVII = 27`
+
+However, in some cases, a smaller value is placed before a larger value to indicate subtraction.
+
+There are six possible subtractive combinations:
+
+| Roman Numeral | Value |
+| ------------- | ----: |
+| IV            |     4 |
+| IX            |     9 |
+| XL            |    40 |
+| XC            |    90 |
+| CD            |   400 |
+| CM            |   900 |
+
+Given a valid Roman numeral, convert it into its corresponding integer.
+
+---
+
+## Input
+
+The input contains a string `s`, representing a valid Roman numeral.
+
+---
+
+## Output
+
+Output the integer value represented by `s`.
+
+---
+
+## Constraints
+
+```text
+1 <= s.length <= 15
+```
+
+* `s` contains only the characters `I`, `V`, `X`, `L`, `C`, `D`, and `M`.
+* It is guaranteed that `s` is a valid Roman numeral.
+* The value of `s` is between `1` and `3999`.
+
+---
+
+# Test Cases
+
+### Test Case 1
+
+**Input**
+
+```text
+III
+```
+
+**Output**
+
+```text
+3
+```
+
+---
+
+### Test Case 2
+
+**Input**
+
+```text
+IV
+```
+
+**Output**
+
+```text
+4
+```
+
+---
+
+### Test Case 3
+
+**Input**
+
+```text
+LVIII
+```
+
+**Output**
+
+```text
+58
+```
+
+---
+
+### Test Case 4
+
+**Input**
+
+```text
+MCMXCIV
+```
+
+**Output**
+
+```text
+1994
+```
+
+---
+
+### Test Case 5
+
+**Input**
+
+```text
+MMMDCCCLXXXVIII
+```
+
+**Output**
+
+```text
+3888
+```
+
+---
+
+# C++ Reference Solution
+
+```cpp
+#include <iostream>
+#include <string>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+
+    unordered_map<char, int> value = {
+        {'I', 1},
+        {'V', 5},
+        {'X', 10},
+        {'L', 50},
+        {'C', 100},
+        {'D', 500},
+        {'M', 1000}
+    };
+
+    int result = 0;
+
+    for (int i = 0; i < s.length(); i++) {
+        // If the current symbol is smaller than the next symbol,
+        // subtract it.
+        if (i < s.length() - 1 && value[s[i]] < value[s[i + 1]]) {
+            result -= value[s[i]];
+        } else {
+            result += value[s[i]];
+        }
+    }
+
+    cout << result << endl;
+
+    return 0;
+}
+```
+
+## 解題概念
+
+判斷目前的羅馬數字和下一個數字：
+
+* 如果 **目前數值 < 下一個數值** → 代表是減法，例如 `IV`
+* 否則 → 直接加到答案中
+
+例如：
+
+```text
+MCMXCIV
+```
+
+計算過程：
+
+```text
+M  = +1000
+C  < M  → -100
+M  = +1000
+X  < C  → -10
+C  = +100
+I  < V  → -1
+V  = +5
+----------------
+Total = 1994
+```
+
+### Time Complexity
+
+```text
+O(n)
+```
+
+其中 `n` 是 Roman numeral 字串的長度。
+
+### Space Complexity
+
+```text
+O(1)
+```
+
+因為羅馬數字的對照表大小固定。
