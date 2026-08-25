@@ -1,0 +1,15 @@
+Given a non-empty array of integers nums, every element appears exactly twice except for one element that appears only once.
+Your task is to find and return the element that appears only once.
+You must implement a solution with:
+Linear runtime complexity: O(n)
+Constant extra space: O(1)
+Input
+The input contains:
+An integer n, representing the number of elements in the array.
+A line containing n integers representing the array nums.
+Constraints
+1 <= n <= 3 * 10^4
+-3 * 10^4 <= nums[i] <= 3 * 10^4
+Every element appears exactly twice except for one element, which appears only once.
+Output
+Output the integer that appears only once in the array.

@@ -1,0 +1,13 @@
+Given a positive integer num, determine whether num is a perfect square.
+A perfect square is an integer that can be written as the product of an integer with itself.
+In other words, num is a perfect square if there exists an integer x such that:
+x × x = num
+Return true if num is a perfect square; otherwise, return false.
+You must not use any built-in square root function, such as sqrt().
+Input
+The input contains one positive integer num.
+Output
+Output true if num is a perfect square.
+Otherwise, output false.
+Constraints
+1 <= num <= 2^31 - 1

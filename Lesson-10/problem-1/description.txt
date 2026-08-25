@@ -1,0 +1,29 @@
+# Binary String Addition
+
+## Problem Description
+
+Given two binary strings `a` and `b`, calculate their sum and output the result as a binary string.
+
+A binary string contains only the characters `0` and `1`.
+
+For example:
+
+* `11 + 1 = 100`
+* `1010 + 1011 = 10101`
+
+Since the length of each binary string can be very large, you should not convert the strings directly into an integer. Instead, perform the binary addition digit by digit.
+
+## Input
+
+The input consists of one line containing two binary strings `a` and `b`, separated by a space.
+
+### Constraints
+
+* `1 <= length(a), length(b) <= 10000`
+* `a` and `b` contain only the characters `0` and `1`.
+* Neither string contains leading zeros, except for the string `"0"` itself.
+
+## Output
+
+Output one binary string representing the sum of `a` and `b`.
+

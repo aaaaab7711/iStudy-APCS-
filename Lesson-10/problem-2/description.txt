@@ -1,0 +1,12 @@
+Given a non-negative integer num, repeatedly add all of its digits until the result has only one digit.
+Return the final single-digit result.
+For example, if num = 38:
+38 → 3 + 8 → 11
+11 → 1 + 1 → 2
+Since 2 has only one digit, the answer is 2.
+Input
+The input contains one integer num.
+Output
+Output the single-digit result after repeatedly adding all digits of num.
+Constraints
+0 <= num <= 2^31 - 1
